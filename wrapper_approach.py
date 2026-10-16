@@ -1,5 +1,7 @@
-## wrapper based approach for feature selection
-#%%
+#%% Wrapper based approach for feature selection
+# Code for faster runs on intel hardware
+from sklearnex import patch_sklearn
+patch_sklearn()
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,7 +19,8 @@ sfs = SFS(model,
           forward=True, #Forward regression
           floating=False, #Adds/removes features to see if the score can be improved
           scoring='accuracy', #Scoring method, could be r2 etc.
-          cv=5)  
+          cv=5,
+          n_jobs=-1)  
 #Cross validation, dataset is split into n equal parts, 
 # for each part, n-1 parts are used for training, 1 is used for testing.
 # the model then iterates over this n times and the next part 
