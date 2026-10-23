@@ -75,8 +75,10 @@ for a in alphas:
     coefs.append(lasso.coef_)
 
 #%% Plotting lasso
+## Will see that it reachesa 0, this is called shrinkage
 ax=plt.gca()
 ax.plot(alphas,coefs)
 ax.set_xscale("log")
 plt.xlabel("Alphas")
 plt.ylabel("Coefficients")
+print("hi")
