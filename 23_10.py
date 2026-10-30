@@ -75,8 +75,12 @@ for a in alphas:
     coefs.append(lasso.coef_)
 
 #%% Plotting lasso
+## Will see that it reachesa 0, this is called shrinkage
+## Lasso allows us to simplify much faster than ridge
+## For some analysts, lasso is preferred since it can quickly exclude unncessary variables
 ax=plt.gca()
 ax.plot(alphas,coefs)
 ax.set_xscale("log")
 plt.xlabel("Alphas")
 plt.ylabel("Coefficients")
+pd.Series(lasso.coef_, index=X.columns)
